@@ -1,15 +1,22 @@
-const express = require('express');
-const colors = require('colors');
+import express from 'express';
+
 const app = express();
+
+// mock
+const selecoes = [
+    {id: 1, selecao: 'Brasil', grupo: 'G'},
+    {id: 1, selecao: 'Suíça', grupo: 'G'},
+    {id: 1, selecao: 'Sérvia', grupo: 'G'},
+    {id: 1, selecao: 'Camarões', grupo: 'G'},
+];
 
 // criar rota padão ou raiz
 app.get('/', (req, res, next) => {
     res.status(200).send('Curso de Node');
 });
 
-// escutar a porta 3000
-const port = 3000;
-const host = 'localhost';
-app.listen(port, host, () => {
-    console.log(`Servidor rodando no endereço http://${host}:${port}`.green.bold);
+app.get('/selecoes', (req, res, next) => {
+    res.status(200).json(selecoes);
 });
+
+export default app;
