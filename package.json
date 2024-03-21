@@ -1,0 +1,21 @@
+{
+  "name": "api_rest",
+  "version": "1.0.0",
+  "description": "API Rest das seleções da Copa do Mundo 2022",
+  "main": "index.js",
+  "license": {
+    "type": "MIT",
+    "url": "https://www.opensource.org/licenses/mit-license.php"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch --no-warnings ./src/app.js"
+  },
+  "keywords": [],
+  "author": "Fernando Santos <fernandomeca7@gmail.com>",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.19.0"
+  },
+  "devDependencies": {}
+}
