@@ -19,5 +19,7 @@
         "colors": "^1.4.0",
         "express": "^4.19.0"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "nodemon": "^3.1.2"
+    }
 }

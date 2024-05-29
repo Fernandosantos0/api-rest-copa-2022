@@ -32,6 +32,11 @@ app.get('/', (req, res, next) => {
     res.status(200).send('Curso de Node');
 });
 
+app.post('/selecoes', (req, res, next) => {
+    selecoes.push(req.body);
+    res.status(201).send('Seleção cadastrada com sucesso!');
+});
+
 app.get('/selecoes', (req, res, next) => {
     res.status(200).json(selecoes);
 });
@@ -42,10 +47,17 @@ app.get('/selecoes/:id', (req, res, next) => {
     res.status(200).json(buscarSelecaoPorId(id));
 });
 
-app.post('/selecoes', (req, res, next) => {
-    selecoes.push(req.body);
-    res.status(201).send('Seleção cadastrada com sucesso!');
+app.put('/selecoes/:id', (req, res, next) => {
+    const { id } = req.params;
+    let index = buscarIndexSelecao(id);
+
+    // editando
+    selecoes[index].selecao = req.body.selecao;
+    selecoes[index].grupo = req.body.grupo;
+
+    res.status(200).json(selecoes[index]);
 });
+
 
 app.delete('/selecoes/:id', (req, res, next) => {
     const { id } = req.params;
