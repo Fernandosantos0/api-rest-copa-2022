@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "API Rest das seleções da Copa do Mundo 2022",
     "main": "server.js",
-    "type": "module",
+    "type": "commonjs",
     "license": {
         "type": "MIT",
         "url": "https://www.opensource.org/licenses/mit-license.php"
@@ -18,7 +18,7 @@
         "body-parser": "^1.20.2",
         "colors": "^1.4.0",
         "express": "^4.19.0",
-        "mysql2": "^3.9.9"
+        "mysql2": "^3.10.0"
     },
     "devDependencies": {
         "nodemon": "^3.1.2"
