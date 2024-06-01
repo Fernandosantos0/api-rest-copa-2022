@@ -10,7 +10,7 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon ./server.js"
+        "dev": "nodemon ./src/server.js"
     },
     "keywords": ["copa", "mundo", "seleção", "catar", "futebol", "país", "países"],
     "author": "Fernando Santos <fernandomeca7@gmail.com>",
@@ -21,6 +21,6 @@
         "mysql2": "^3.10.0"
     },
     "devDependencies": {
-        "nodemon": "^3.1.2"
+        "nodemon": "3.1.2"
     }
 }

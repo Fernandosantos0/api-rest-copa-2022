@@ -2,7 +2,6 @@
 import SelecaoRepository from '../repositories/SelecaoRepository.js';
 
 class SelecaoController {
-
     async index(req, res, next) { // Listar tudo
         const rows = await SelecaoRepository.findAll();
 
