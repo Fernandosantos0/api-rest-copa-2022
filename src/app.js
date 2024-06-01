@@ -1,8 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
-// importando o controller
-import SelecaoController from './app/controllers/SelecaoController.js';
+// importando o routes
+import routes from './routes.js';
 
 const app = express();
 
@@ -12,11 +12,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// ROTAS
-app.post('/selecoes', SelecaoController.store);
-app.get('/selecoes', SelecaoController.index);
-app.get('/selecoes/:id', SelecaoController.show);
-app.put('/selecoes/:id', SelecaoController.update);
-app.delete('/selecoes/:id', SelecaoController.delete);
+// usar o routes
+app.use('/selecoes', routes);
+app.use((req, res, next) => {
+    res.status(400).json({
+        page: `not found`
+    });
+});
 
-export default app;
+// exportando o app
+export { app as default };
