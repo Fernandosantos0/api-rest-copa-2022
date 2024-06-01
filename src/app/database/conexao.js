@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+import mysql from 'mysql2';
 
 const conexao =  mysql.createConnection({
     host: 'localhost',
@@ -7,9 +7,9 @@ const conexao =  mysql.createConnection({
     password: 'americalatina',
     database: 'db_copa',
     timezone: 'America/Sao_Paulo',
-    charset: 'utf8mb4' 
+    charset: 'utf8mb4'
 });
 
 conexao.connect();
 
-module.exports = conexao;
+export default conexao;

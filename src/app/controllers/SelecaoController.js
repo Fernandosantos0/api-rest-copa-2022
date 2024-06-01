@@ -1,88 +1,43 @@
-// importando a conexão com o MySQL
-const conexao = require('../database/conexao');
+// importando o repository
+import SelecaoRepository from '../repositories/SelecaoRepository.js';
 
 class SelecaoController {
-    index(req, res, next) { // Listar tudo
-        const sql = 'SELECT * FROM selecoes';
 
-        conexao.query(sql, (erro, resultado) => {
-            if(erro) {
-                console.error(erro);
-                return res.status(404).json({
-                    erro: erro
-                });
-            }
+    async index(req, res, next) { // Listar tudo
+        const rows = await SelecaoRepository.findAll();
 
-            res.status(200).json(resultado);
-        });
+        res.status(200).json(rows);
     }
 
-    show(req, res, next) { // Listar tudo por id
+    async show(req, res, next) { // Listar tudo por id
         const { id } = req.params;
-        const sql = 'SELECT * FROM selecoes WHERE ?? = ?';
-    
-        conexao.query(sql, ['id', id] ,(erro, resultado) => {
-            if(erro) {
-                console.error(erro);
-                return res.status(404).json({
-                    erro: erro
-                });
-            }
-    
-            const linha = resultado[0];
-            res.status(200).json(linha);
-        });
+        const row = await SelecaoRepository.findById(id);
+
+        res.status(200).json(row);
     }
 
-    store(req, res, next) { // Criar dados
+    async store(req, res, next) { // Criar dados
         const selecao = req.body;
-        const sql = 'INSERT INTO selecoes SET ?';
+        const row = await SelecaoRepository.create(selecao);
 
-        conexao.query(sql, selecao, (erro, resultado) => {
-            if(erro) {
-                console.error(erro);
-                return res.status(404).json({
-                    erro: erro
-                });
-            }
-
-            res.status(201).json(resultado);
-        });
+        res.status(201).json(row);
     }
 
-    update(req, res, next) { // Atualizar dados
+    async update(req, res, next) { // Atualizar dados
         const { id } = req.params;
         const selecao = req.body;
-    
-        const sql = 'UPDATE selecoes SET ? WHERE ?? = ?';
-        conexao.query(sql, [selecao, 'id', id] ,(erro, resultado) => {
-            if(erro) {
-                console.error(erro);
-                return res.status(404).json({
-                    erro: erro
-                });
-            }
-            
-            res.status(200).json(resultado);
-        });
+        const row = await SelecaoRepository.update(selecao, id);
+
+        res.status(200).json(row);
     }
 
-    delete(req, res, next) { // Apagar dados
+    async delete(req, res, next) { // Apagar dados
         const { id } = req.params;
-        const sql = 'DELETE FROM selecoes WHERE ?? = ?';
+        const row = await SelecaoRepository.delete(id);
 
-        conexao.query(sql, ['id', id] ,(erro, resultado) => {
-            if(erro) {
-                console.error(erro);
-                return res.status(404).json({
-                    erro: erro
-                });
-            }
-
-            res.status(200).json(resultado);
-        });
+        res.status(200).json(row);
     }
 }
 
 // padrão singleton
-module.exports = new SelecaoController();
+export default new SelecaoController();

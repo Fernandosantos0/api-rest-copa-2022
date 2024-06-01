@@ -1,9 +1,9 @@
 {
     "name": "api_rest",
     "version": "1.0.0",
-    "description": "API Rest das seleções da Copa do Mundo 2022",
+    "description": "API Rest das seleções da Copa do Mundo 2022, sediado no Catar",
     "main": "server.js",
-    "type": "commonjs",
+    "type": "module",
     "license": {
         "type": "MIT",
         "url": "https://www.opensource.org/licenses/mit-license.php"
@@ -12,7 +12,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon ./server.js"
     },
-    "keywords": [],
+    "keywords": ["copa", "mundo", "seleção", "catar", "futebol", "país", "países"],
     "author": "Fernando Santos <fernandomeca7@gmail.com>",
     "dependencies": {
         "body-parser": "^1.20.2",

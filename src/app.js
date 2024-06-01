@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express from 'express';
+import bodyParser from 'body-parser';
 
 // importando o controller
-const SelecaoController = require('./app/controllers/SelecaoController');
+import SelecaoController from './app/controllers/SelecaoController.js';
 
 const app = express();
 
@@ -19,4 +19,4 @@ app.get('/selecoes/:id', SelecaoController.show);
 app.put('/selecoes/:id', SelecaoController.update);
 app.delete('/selecoes/:id', SelecaoController.delete);
 
-module.exports = app;
+export default app;
